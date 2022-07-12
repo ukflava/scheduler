@@ -20,8 +20,8 @@ const day = props.days.map(day => {
     key={day.id}
     name={day.name} 
     spots={day.spots} 
-    selected={day.name === day} 
-    setDay={day.setDay} />)
+    selected={day.name === props.day} 
+    setDay={props.setDay} />)
 });
 
 
@@ -35,5 +35,3 @@ const day = props.days.map(day => {
     // </li>
   );
 }
-
-{/* <ul>{<DayListItem />}</ul> */}
