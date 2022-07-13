@@ -1,26 +1,16 @@
 import React from "react";
 
-import DayListItem from "components/InterviewerListItem";
+import InterviewerListItem from "components/InterviewerListItem";
 
 export default function InterviewerList(props) {
-  // const dayClass = classNames("day-list__item", {
-  //   // "day-list__item": props,
-  //   "day-list__item--selected": props.selected,
-  //   "day-list__item--full": !props.spots
-    
-  // });
 
-// const formatSpots = (input) => {
-//   if (input === 1 ) { return "1 spot"}
-//   return input === 0 ? "no spots" :  input + " spots"
-// };
-const Interviewer = props.days.map(Interviewer => {
+const Interviewer = props.interviewers.map(Interviewer => {
   return (
-  <DayListItem
+  <InterviewerListItem
     key={Interviewer.id}
     name={Interviewer.name} 
     avatar={Interviewer.avatar} 
-    selected={Interviewer.name === props.name} 
+    selected={Interviewer.id === props.Interviewer} 
     setInterviewer={props.setInterviewer} />)
 });
 
