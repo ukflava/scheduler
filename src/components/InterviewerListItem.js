@@ -6,8 +6,9 @@ export default function InterviewerListItem(props) {
   const InterviewerClass = classNames("interviewers__item", {
     // "day-list__item": props,
 
-    "interviewers__item-image": props.avatar,
-    "interviewers__item--selected": props.selected === true
+    "interviewers__item-image": Image,
+    "interviewers__item--selected": props.selected === true,
+    "interviewers__item--selected-image": props.selected === true & Image
     
     
   });
@@ -18,8 +19,18 @@ export default function InterviewerListItem(props) {
 // };
 
   return (
+// {/* <li className="interviewers__item">
+//   <img
+//     className="interviewers__item-image"
+//     src="https://i.imgur.com/LpaY82x.png"
+//     alt="Sylvia Palmer"
+//   />
+//   Sylvia Palmer
+// </li> */}
+
+    
     <li onClick={() => props.setInterviewer(props.id)} className={InterviewerClass}>
-      <h2><img src={props.avatar}/>{props.selected? props.name: ""}</h2>
+      <img className="interviewers__item-image" src={props.avatar}/>{props.selected? props.name: ""}
      
     </li>
   );
