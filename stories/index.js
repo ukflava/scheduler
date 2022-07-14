@@ -151,6 +151,6 @@ storiesOf("Button", module)
   .add("Appointment with Time", () => <Appointment time="12pm" />)
   .add("Header", () => <Header time="12pm" />)
   .add("Empty", () => <Empty onAdd={action("onAdd")}/>)
-  .add("Show", () => <Show onEdit={action("onEdit")}/>)
-  .add("Show", () => <Show onDelete={action("onDelete")}/>);
+  .add("Show", () => <Show onDelete={action("onDelete")} onEdit={action("onEdit")}/>)
+  // .add("ShowDelete", () => <Show onDelete={action("onDelete")}/>);
   
