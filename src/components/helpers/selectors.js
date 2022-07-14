@@ -1,8 +1,15 @@
 // Create a function called getAppointmentsForDay 
 // that will receive two arguments state and day will return an array of appointments for the given day
+import React from "react";
 
+export function getAppointmentsForDay(state, day) {
 
-function selectUserByName(state, name) {
-  const filteredNames = state.users.filter(user => user.name === name);
-  return filteredNames;
+  let ListAppointments = [];
+
+  state.days.map(dataDays => {
+    if (dataDays.name === day) {
+      dataDays.appointments.forEach(appt => appointmentArr.push(appt))
+    }
+  })
+  return ListAppointments;
 }
