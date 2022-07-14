@@ -11,6 +11,7 @@ import DayList from "../src/components/DayList";
 import InterviewerListItem from "../src/components/InterviewerListItem";
 import InterviewerList from "../src/components/InterviewerList";
 import Appointment from "components/Appointment/index.js";
+import Header from "components/Appointment/index.js";
 
 
 storiesOf("Button", module)
@@ -143,4 +144,6 @@ storiesOf("Button", module)
     backgrounds: [{ name: "white", value: "#fff", default: true }]
   })
   .add("Appointment", () => <Appointment />)
-  .add("Appointment with Time", () => <Appointment time="12pm" />);
+  .add("Appointment with Time", () => <Appointment time="12pm" />)
+  .add("Header", () => <Header time="12pm" />);
+  
