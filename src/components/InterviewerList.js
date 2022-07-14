@@ -24,6 +24,8 @@ const Interviewers = props.interviewers.map(interviewer => {
     avatar={interviewer.avatar} 
     selected={interviewer.id === props.interviewer} 
     setInterviewer={() => props.setInterviewer(interviewer.id)} />)
+    // selected={interviewer.id === value} 
+    // setInterviewer={() => onChange(interviewer.id)} />)
 });
 
 
