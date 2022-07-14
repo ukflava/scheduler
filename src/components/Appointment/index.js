@@ -9,9 +9,9 @@ import Status from "./Status.js";
 export default function Appointment(props) {
   return (
     <>
-  <Header />
+ <Header time={props.time} />
   <article className="appointment"></article>
-
+{props.interview?<Show />:<Empty />}
   </>
     );
 
