@@ -5,6 +5,7 @@ import { action } from "@storybook/addon-actions";
 
 import "index.scss";
 
+// import Button from "../Button.js"
 import Button from "components/Button";
 import DayListItem from "../src/components/DayListItem";
 import DayList from "../src/components/DayList";
@@ -15,7 +16,7 @@ import Appointment from "../src/components/Appointment";
 import Header from "../src/components/Appointment/Header.js";
 import Empty from "../src/components/Appointment/Empty.js";
 import Show from "../src/components/Appointment/Show.js";
-import Confirm from "../src/components/Appointment";
+import Confirm from "../src/components/Appointment/Confirm.js";
 
 
 storiesOf("Button", module)
@@ -152,5 +153,6 @@ storiesOf("Button", module)
   .add("Header", () => <Header time="12pm" />)
   .add("Empty", () => <Empty onAdd={action("onAdd")}/>)
   .add("Show", () => <Show onDelete={action("onDelete")} onEdit={action("onEdit")}/>)
+  .add("Confirm", () => <Confirm onCancel={action("onCancel")} onConfirm={action("onConfirm")}/>);
   // .add("ShowDelete", () => <Show onDelete={action("onDelete")}/>);
   
