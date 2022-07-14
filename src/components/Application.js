@@ -86,12 +86,12 @@ export default function Application(props) {
 
   const [days, setDays] = useState([]);
 useEffect(() => {
-  const testURL = `localhost:8001/api/days`;
+  const testURL = `http://localhost:8001/api/days`;
   axios.get(testURL).then(response => {
-    console.log(response.data.results);
-    setDays([...response.data.results])
+    console.log(response.data);
+    setDays([...response.data])
   });
-}, [days]);
+}, []);
 
 
 
