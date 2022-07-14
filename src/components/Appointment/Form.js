@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from 'react';
 import Button from "../Button.js"
 import InterviewerList from "../InterviewerList.js"
 
 
 export default function Confirm(props) {
+
+  const [student, setStudent] = useState(props.student || "");
+const [interviewer, setInterviewer] = useState(props.interviewer || null);
+
   return (
     <main className="appointment__card appointment__card--create">
   <section className="appointment__card-left">
@@ -13,7 +17,8 @@ export default function Confirm(props) {
         name="name"
         type="text"
         placeholder="Enter Student Name"
-        
+        value={student}
+        onChange={(event) => setStudent(event.target.value)}
         /*
           This must be a controlled component
           your code goes here

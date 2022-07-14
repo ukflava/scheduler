@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "components/Application.scss";
 import DayList from "./DayList";
-import InterviewerList from "./InterviewerList";
+// import InterviewerList from "./InterviewerList";
 // import Appointment from "components/Appointment";
 
 const days = [
@@ -44,8 +44,7 @@ export default function Application(props) {
   className="sidebar__lhl sidebar--centered"
   src="images/lhl.png"
   alt="Lighthouse Labs"
-/>
-        {/* Replace this with the sidebar elements during the "Project Setup & Familiarity" activity. */}
+/>        
       </section>
       <section className="schedule">
         {/* Replace this with the schedule elements durint the "The Scheduler" activity. */}

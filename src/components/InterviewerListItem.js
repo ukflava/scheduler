@@ -18,22 +18,16 @@ export default function InterviewerListItem(props) {
 //   return input === 0 ? "no spots" :  input + " spots"
 // };
 
-  return (
-// {/* <li className="interviewers__item">
-//   <img
-//     className="interviewers__item-image"
-//     src="https://i.imgur.com/LpaY82x.png"
-//     alt="Sylvia Palmer"
-//   />
-//   Sylvia Palmer
-// </li> */}
-
-    
-    <li onClick={() => props.setInterviewer(props.id)} className={InterviewerClass}>
-      <img className="interviewers__item-image" src={props.avatar} alt={props.name}/>{props.selected? props.name: ""}
-     
-    </li>
-  );
+return (
+  <li className={InterviewerClass} onClick={props.setInterviewer}>
+    <img
+      className="interviewers__item-image"
+      src={props.avatar}
+      alt={props.name}
+    />
+    {props.selected && props.name}
+  </li>
+);
 
 
 // return <li className="interviewers__item">
