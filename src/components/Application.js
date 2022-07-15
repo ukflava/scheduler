@@ -104,7 +104,8 @@ useEffect(() => {
 
   // const [day, setDay] = useState("Monday");
 
-
+  const setDay = day => setState({ ...state, day });
+  
   return (
     <main className="layout">
       <section className="sidebar">
@@ -117,7 +118,7 @@ useEffect(() => {
 <nav className="sidebar__menu"><DayList
   days={state.days}
   value={state.day}
-  onChange={setState.setDay}
+  onChange={setDay}
 /></nav>
 <img
   className="sidebar__lhl sidebar--centered"
