@@ -96,6 +96,7 @@ useEffect(() => {
   axios.get(testURL).then(response => {
     console.log(response.data);
     setState({days:[...response.data]} )
+    // setState(prev => ({ ...prev, days }));
   });
 }, []);
 
