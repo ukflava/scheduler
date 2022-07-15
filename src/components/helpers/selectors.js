@@ -8,8 +8,9 @@ export function getAppointmentsForDay(state, day) {
 
   state.days.map(dataDays => {
     if (dataDays.name === day) {
-      dataDays.appointments.forEach(appt => appointmentArr.push(appt))
+      dataDays.appointments.forEach(appt => ListAppointments.push(state.appointments[appt]))
     }
   })
+  console.log(ListAppointments)
   return ListAppointments;
 }
