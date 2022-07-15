@@ -14,3 +14,7 @@ export function getAppointmentsForDay(state, day) {
   console.log(ListAppointments)
   return ListAppointments;
 }
+export function getAppointmentsForDay(state, interview) {
+
+
+}

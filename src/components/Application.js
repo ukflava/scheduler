@@ -95,17 +95,31 @@ export default function Application(props) {
 
   const dailyAppointments = getAppointmentsForDay(state,state.day)
   
+  const schedule = appointments.map((appointment) => {
+    const interview = getInterview(state, appointment.interview);
+  
+    return (
+      <Appointment
+        key={appointment.id}
+        id={appointment.id}
+        time={appointment.time}
+        interview={interview}
+      />
+    );
+  });
 
-  const appointment = dailyAppointments.map((appointment) => {
+
+
+//   const appointment = dailyAppointments.map((appointment) => {
    
 
-    return (
-      <Appointment 
-  key={appointment.id} 
-  {...appointment} 
-/>
-      )
-  });
+//     return (
+//       <Appointment 
+//   key={appointment.id} 
+//   {...appointment} 
+// />
+//       )
+//   });
 
   // const [days, setDays] = useState([]);
 // useEffect(() => {
