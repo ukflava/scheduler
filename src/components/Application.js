@@ -83,22 +83,23 @@ export default function Application(props) {
 />
       )
   });
+  const [state, setState] = useState({
+    day: "Monday",
+    days: [],
+    // you may put the line below, but will have to remove/comment hardcoded appointments variable
+    appointments: {}
+  });
 
   // const [days, setDays] = useState([]);
 useEffect(() => {
   const testURL = `http://localhost:8001/api/days`;
   axios.get(testURL).then(response => {
     console.log(response.data);
-    setDays([...response.data])
+    setState({days:[...response.data]} )
   });
 }, []);
 
-const [state, setState] = useState({
-  day: "Monday",
-  days: [],
-  // you may put the line below, but will have to remove/comment hardcoded appointments variable
-  appointments: {}
-});
+
 
 
   // const [day, setDay] = useState("Monday");
@@ -116,7 +117,7 @@ const [state, setState] = useState({
 <nav className="sidebar__menu"><DayList
   days={state.days}
   value={state.day}
-  onChange={setDay}
+  onChange={setState.setDay}
 /></nav>
 <img
   className="sidebar__lhl sidebar--centered"
