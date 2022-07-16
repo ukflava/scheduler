@@ -6,21 +6,25 @@ export default function useVisualMode(initial) {
 
   function transition(value) {
     setHistory(history => [...history, value])
-    return setMode(value)
+    // return 
+    setMode(value)
        
 
     // return {mode}
   }
 
   function back() {
-   return setMode(history[history.length-1])
+    console.log("history in back", history)
+    setMode(history[history.length-1])
+    // setHistory(history.slice(0,-1))
+    // return 
 
     // return {mode}
 
   }
 // console.log(transition, back)
 console.log(mode)
-console.log("istory", history )
+console.log("history", history )
 return { mode, transition, back };
 
  
