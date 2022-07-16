@@ -13,33 +13,28 @@ export default function InterviewerList(props) {
     
     
   // });
+// props.interviewers = [];
 
 
-const Interviewers = props.interviewers.map((interviewer) => {
-  // const value = props.interviewer
-  // const onChange = props.setInterviewer
-  return (
-  // <InterviewerListItem
-  //   key={interviewer.id}
-  //   id={interviewer.id}
-  //   name={interviewer.name} 
-  //   avatar={interviewer.avatar} 
-  //   selected={interviewer.id === props.interviewer} 
-  //   setInterviewer={() => props.setInterviewer(interviewer.id)} />
-    <InterviewerListItem 
-  key={interviewer.id}
-  name={interviewer.name}
-  avatar={interviewer.avatar}
-  selected={interviewer.id === props.value}
-  setInterviewer={(event) => props.onChange(interviewer.id)}    
-/>
-    
-    
-    
-    )
-    // selected={interviewer.id === value} 
-    // setInterviewer={() => onChange(interviewer.id)} />)
-});
+///TEMP FOR FORM CHECKING - CHANGE LATER
+const Interviewers = <InterviewerListItem />
+/////
+
+// UNCOMMENT THIS SECTION
+
+// const Interviewers = props.interviewers.map((interviewer) => {
+  
+//    return (
+ 
+//     <InterviewerListItem 
+//   key={interviewer.id}
+//   name={interviewer.name}
+//   avatar={interviewer.avatar}
+//   selected={interviewer.id === props.value}
+//   setInterviewer={(event) => props.onChange(interviewer.id)}    
+// />
+//     )
+// });
 
 
   return (
