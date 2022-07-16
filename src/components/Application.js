@@ -6,6 +6,7 @@ import "components/Application.scss";
 
 //LOCAL IMPORT
 import Appointment from "components/Appointment";
+
 import DayList from "./DayList";
 import { getInterview, getAppointmentsForDay} from "components/helpers/selectors";
 

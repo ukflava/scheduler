@@ -5,21 +5,39 @@ import classNames from "classnames";
 import Empty from "./Empty.js";
 import Header from "./Header.js";
 import Show from "./Show.js";
-// import Confirm from "./Confirm.js";
+import Confirm from "./Confirm.js";
 // import Status from "./Status.js";
+import useVisualMode from "hooks/useVisualMode";
+const EMPTY = "EMPTY";
+const SHOW = "SHOW";
+const CREATE = "CREATE";
+
+const { mode, transition, back } = useVisualMode(
+  props.interview ? SHOW : EMPTY
+);
 
 
 
 export default function Appointment(props) {
 
-  const AppointmentClass = classNames("appointment");
+  // const AppointmentClass = classNames("appointment");
 
   return (
+    
     <>
+    
  <Header time={props.time} />
-  <article className={AppointmentClass}>
+ {mode === EMPTY && <Empty onAdd={() => console.log("Clicked onAdd")} />}
+{mode === SHOW && (
+  <Show
+    student={props.interview.student}
+    interviewer={props.interview.interviewer}
+  />
+)}
+
+  {/* <article className={AppointmentClass}>
 {props.interview?<Show  student={props.interview.student} interviewer={props.interview.interviewer}/>:<Empty />}
-</article>
+</article> */}
   </>
     );
 
