@@ -14,19 +14,36 @@ export function getAppointmentsForDay(state, day) {
   console.log(ListAppointments)
   return ListAppointments;
 }
-export function getInterviewersForDay(state) {
+// export function getInterviewersForDay(state) {
+
+//   let ListInterviewers = [];
+
+//   Object.values(state.interviewers).map(InterviewerData => {
+//     // name or id ???
+//     // if (InterviewerData.id === personId) {
+//       InterviewerData.forEach(appt => ListInterviewers.push(state.interviewers[appt]))
+//     // }
+//   })
+//   console.log(ListInterviewers)
+//   return ListInterviewers;
+// }
+
+
+export function getInterviewersForDay(state, personID) {
 
   let ListInterviewers = [];
+  state.days.map(dataDays => {
+    if (dataDays.name === day) {
+      dataDays.interviewers.forEach(appt => ListInterviewers.push(state.interviewers[appt]))
+    }
+    })
+  // name or id ???
+//     // if (InterviewerData.id === personId) {
 
-  Object.values(state.interviewers).map(InterviewerData => {
-    // name or id ???
-    // if (InterviewerData.id === personId) {
-      InterviewerData.id.forEach(appt => ListInterviewers.push(state.interviewers[appt]))
-    // }
-  })
-  console.log(ListInterviewers)
+console.log(ListInterviewers)
   return ListInterviewers;
 }
+
 
 
 export function getInterview(state, interview) {
