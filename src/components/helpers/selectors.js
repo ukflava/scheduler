@@ -29,7 +29,7 @@ export function getAppointmentsForDay(state, day) {
 // }
 
 
-export function getInterviewersForDay(state, personID) {
+export function getInterviewersForDay(state, day) {
 
   let ListInterviewers = [];
   state.days.map(dataDays => {
