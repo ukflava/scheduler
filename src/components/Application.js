@@ -97,6 +97,7 @@ export default function Application(props) {
     });
   }, []);
 
+  const dailyInterviewers = getInterviewersForDay(state,state.day)
   const dailyAppointments = getAppointmentsForDay(state,state.day)
   
   const schedule = dailyAppointments.map((appointment) => {
@@ -108,37 +109,10 @@ export default function Application(props) {
         id={appointment.id}
         time={appointment.time}
         interview={interview}
+        interviewers={dailyInterviewers}
       />
     );
   });
-
-
-
-//   const appointment = dailyAppointments.map((appointment) => {
-   
-
-//     return (
-//       <Appointment 
-//   key={appointment.id} 
-//   {...appointment} 
-// />
-//       )
-  // });
-
-  // const [days, setDays] = useState([]);
-// useEffect(() => {
-//   const testURL = `http://localhost:8001/api/days`;
-//   axios.get(testURL).then(response => {
-//     console.log(response.data);
-//     setState({days:[...response.data]} )
-//     // setState(prev => ({ ...prev, days }));
-//   });
-// }, []);
-
-
-
-
-  // const [day, setDay] = useState("Monday");
 
 
   
