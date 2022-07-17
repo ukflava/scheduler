@@ -8,7 +8,7 @@ import "components/Application.scss";
 import Appointment from "components/Appointment";
 
 import DayList from "./DayList";
-import { getInterview, getAppointmentsForDay} from "components/helpers/selectors";
+import { getInterview, getAppointmentsForDay, getInterviewersForDay} from "components/helpers/selectors";
 
 // import InterviewerList from "./InterviewerList";
 // import Appointment from "components/Appointment";
@@ -78,7 +78,8 @@ export default function Application(props) {
     day: "Monday",
     days: [],
     // you may put the line below, but will have to remove/comment hardcoded appointments variable
-    appointments: {}
+    appointments: {},
+    interviewers: {}
   });
   const setDay = day => setState({ ...state, day });
   // const dailyAppointments = [];

@@ -14,6 +14,21 @@ export function getAppointmentsForDay(state, day) {
   console.log(ListAppointments)
   return ListAppointments;
 }
+export function getInterviewersForDay(state) {
+
+  let ListInterviewers = [];
+
+  Object.values(state.interviewers).map(InterviewerData => {
+    // name or id ???
+    // if (InterviewerData.id === personId) {
+      InterviewerData.id.forEach(appt => ListInterviewers.push(state.interviewers[appt]))
+    // }
+  })
+  console.log(ListInterviewers)
+  return ListInterviewers;
+}
+
+
 export function getInterview(state, interview) {
   if (!interview) {
     return null;

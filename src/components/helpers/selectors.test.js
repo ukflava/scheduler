@@ -1,4 +1,4 @@
-import {getInterview, getAppointmentsForDay} from "./selectors.js";
+import {getInterview, getAppointmentsForDay, getInterviewersForDay} from "./selectors.js";
 
 const state = {
   days: [
@@ -69,6 +69,38 @@ test("getAppointmentsForDay returns an empty array when the day is not found", (
   const result = getAppointmentsForDay(state, "Wednesday");
   expect(result.length).toEqual(0);
 });
+
+
+test("getInterviewersForDay returns an array", () => {
+  const result = getInterviewersForDay(state, 2);
+  expect(Array.isArray(result)).toBe(true);
+});
+
+test("getInterviewersForDay returns an array with a length matching the number of appointments for that day", () => {
+  const result = getInterviewersForDay(state, 1);
+  expect(result.length).toEqual(3);
+});
+
+test("getInterviewersForDay returns an array containing the correct appointment objects", () => {
+  const [first, second] = getInterviewersForDay(state, 2);
+  expect(first).toEqual(state.appointments["4"]);
+  expect(second).toEqual(state.appointments["5"]);
+});
+
+test("getInterviewersForDay returns an empty array when data is empty", () => {
+  const result = getInterviewersForDay({ interviewers: [] }, 3);
+  expect(result.length).toEqual(0);
+});
+
+test("getInterviewersForDay returns an empty array when not found", () => {
+  const result = getInterviewersForDay(state, 1);
+  expect(result.length).toEqual(0);
+});
+
+
+
+
+
 
 test("getInterview returns an object with the interviewer data", () => {
   const result = getInterview(state, state.appointments["3"].interview);
