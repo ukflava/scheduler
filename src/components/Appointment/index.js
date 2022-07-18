@@ -7,7 +7,7 @@ import Header from "./Header.js";
 import Show from "./Show.js";
 import Form from "./Form.js";
 // import Confirm from "./Confirm.js";
-// import Status from "./Status.js";
+import Status from "./Status.js";
 
 import useVisualMode from "hooks/useVisualMode";
 
@@ -18,6 +18,7 @@ export default function Appointment(props) {
   const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
+const SAVING = "SAVING";
 
 
 
@@ -36,8 +37,9 @@ function save(name, interviewer) {
     student: name,
     interviewer
   };
-  props.bookInterview(props.id, interview)
-  transition(SHOW)
+  transition(SAVING)
+  props.bookInterview(props.id, interview).then(() => transition(SHOW))
+  
 
 
 }
@@ -55,6 +57,7 @@ function save(name, interviewer) {
     interviewer={props.interview.interviewer}
   />
 )}
+{mode === SAVING && <Status message="Saving" />}
  {mode === CREATE &&
         <Form
           name={props.name}

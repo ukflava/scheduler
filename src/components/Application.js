@@ -112,6 +112,8 @@ export default function Application(props) {
       ...state,
       appointments
     });
+
+    return axios.put(`/api/appointments/${id}`, { interview })
   }
 
   // function save(name, interviewer) {
