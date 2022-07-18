@@ -45,20 +45,9 @@ function save(name, interviewer) {
 
 
 }
-function editAppointment(name, interviewer) {
-  if (mode === CONFIRM) {
-
-  const interview = {
-    student: name,
-    interviewer
-  };
-  transition(SAVING)
-  props.bookInterview(props.id, interview).then(() => transition(SHOW))
-  }
-  else {
-    transition(CONFIRM);
-  } 
-
+function editAppointment() {
+  
+  transition(EDIT);
 }
 
 function deleteAppointment() {
@@ -108,17 +97,17 @@ else {
         <Confirm 
           onCancel={back}
           onConfirm={deleteAppointment}
-          message="Confirm your intention to delete appointment" 
+          // message="Confirm delete appointment" 
         />}
-{mode === EDIT && 
+ {mode === EDIT &&
         <Form 
-          name={props.name}
-          value={props.value}
+          name={props.name ? props.name : props.interview.student}
+          value={props.value ? props.value: props.interview.interviewer.id}
           interviewers={props.interviewers}
-          // interviewers={props.interviewers}
           onSave={save}
-          onEdit={editAppointment}
-          onCancel={back}/>}
+          onCancel={back}
+        />
+      }
 
   {/* <article className={AppointmentClass}>
 {props.interview?<Show  student={props.interview.student} interviewer={props.interview.interviewer}/>:<Empty />}
