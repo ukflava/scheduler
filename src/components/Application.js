@@ -131,10 +131,12 @@ export default function Application(props) {
   
     return (
       <Appointment
+      {...dailyAppointments}
         key={appointment.id}
         id={appointment.id}
         time={appointment.time}
         interview={interview}
+        // interview={appointment.interview}
         interviewers={dailyInterviewers}
         bookInterview={bookInterview}
         />
@@ -166,7 +168,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
       {schedule}
-      <Appointment key="last" time="5pm" bookInterview={bookInterview} />
+      {/* <Appointment key="last" time="5pm" bookInterview={bookInterview} /> */}
         
       </section>
     </main>

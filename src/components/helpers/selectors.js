@@ -1,6 +1,6 @@
 // Create a function called getAppointmentsForDay 
 // that will receive two arguments state and day will return an array of appointments for the given day
-import React from "react";
+// import React from "react";
 
 export function getAppointmentsForDay(state, day) {
 
@@ -9,9 +9,10 @@ export function getAppointmentsForDay(state, day) {
   state.days.map(dataDays => {
     if (dataDays.name === day) {
       dataDays.appointments.forEach(appt => ListAppointments.push(state.appointments[appt]))
+      // dataDays.appointments.forEach(appt => ListAppointments.push(appt))
     }
   })
-  console.log(ListAppointments)
+  console.log("LIST FROM SELECTORS APPFORDAY",ListAppointments)
   return ListAppointments;
 }
 // export function getInterviewersForDay(state) {
@@ -52,6 +53,10 @@ export function getInterview(state, interview) {
   }
 
   const interviewerData = state.interviewers[interview.interviewer];
+
+  
+  console.log("viewe", interview)
+  console.log("student, interviewer", state)
   return {
     student: interview.student,
     interviewer: interviewerData
