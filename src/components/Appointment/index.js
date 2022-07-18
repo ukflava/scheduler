@@ -45,15 +45,19 @@ function save(name, interviewer) {
 
 
 }
-function edit(name, interviewer) {
+function editAppointment(name, interviewer) {
+  if (mode === CONFIRM) {
+
   const interview = {
     student: name,
     interviewer
   };
   transition(SAVING)
   props.bookInterview(props.id, interview).then(() => transition(SHOW))
-  
-
+  }
+  else {
+    transition(CONFIRM);
+  } 
 
 }
 
@@ -95,7 +99,7 @@ else {
           interviewers={props.interviewers}
           // interviewers={props.interviewers}
           onSave={save}
-          onEdit={edit}
+         
           onCancel={back}
           />}
 {mode === SAVING && <Status message="Saving" />}
@@ -113,6 +117,7 @@ else {
           interviewers={props.interviewers}
           // interviewers={props.interviewers}
           onSave={save}
+          onEdit={editAppointment}
           onCancel={back}/>}
 
   {/* <article className={AppointmentClass}>
