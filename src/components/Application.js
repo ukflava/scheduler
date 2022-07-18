@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+// import axios from "axios";
 
+import useApplicationData from "hooks/useApplicationData";
 //STYLES
 import "components/Application.scss";
 
@@ -10,16 +11,17 @@ import Appointment from "components/Appointment";
 import DayList from "./DayList";
 import { getInterview, getAppointmentsForDay, getInterviewersForDay} from "components/helpers/selectors";
 
-const {
-  state,
-  setDay,
-  bookInterview,
-  cancelInterview
-} = useApplicationData();
+
 
 
 export default function Application(props) {
 
+  const {
+    state,
+    setDay,
+    bookInterview,
+    cancelInterview
+  } = useApplicationData();
   
   const dailyInterviewers = getInterviewersForDay(state,state.day)
   const dailyAppointments = getAppointmentsForDay(state,state.day)
@@ -38,7 +40,7 @@ export default function Application(props) {
         interviewers={dailyInterviewers}
         bookInterview={bookInterview}
         cancelInterview={cancelInterview}
-        editInterview={editInterview}
+        // editInterview={editInterview}
         />
     );
   });
@@ -59,7 +61,7 @@ export default function Application(props) {
   value={state.day}
   onChange={setDay}
   bookInterview={bookInterview}
-  editInterview={editInterview}
+  // editInterview={editInterview}
 /></nav>
 <img
   className="sidebar__lhl sidebar--centered"

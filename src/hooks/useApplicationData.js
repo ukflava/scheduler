@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 
 import axios from "axios";
+
+
 export default function useApplicationData(props) {
+
 const [state, setState] = useState({
   day: "Monday",
   days: [],
-  // you may put the line below, but will have to remove/comment hardcoded appointments variable
   appointments: {},
   interviewers: {}
 });
@@ -59,4 +61,11 @@ function cancelInterview(id) {
 //     interviewer
 //   };
 // }
+
+return {
+  state,
+  setDay,
+  bookInterview,
+  cancelInterview
+};
 }
