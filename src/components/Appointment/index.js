@@ -3,6 +3,7 @@ import "./styles.scss";
 // import classNames from "classnames";
 
 import Empty from "./Empty.js";
+import Error from "./Error.js";
 import Header from "./Header.js";
 import Show from "./Show.js";
 import Form from "./Form.js";
@@ -43,7 +44,7 @@ function save(name, interviewer) {
   };
   transition(SAVING)
   props.bookInterview(props.id, interview).then(() => transition(SHOW))
-  
+  .catch(() => window.alert("error"), transition(ERROR_SAVE))
 
 
 }
@@ -58,6 +59,7 @@ function deleteAppointment() {
  if (mode === CONFIRM) {
   transition(DELETING)
   props.cancelInterview(props.id).then(() => transition(EMPTY))
+  .catch(() => window.alert("error"), transition(ERROR_DELETE))
 }
 else {
   transition(CONFIRM);
@@ -99,7 +101,7 @@ else {
         <Confirm 
           onCancel={back}
           onConfirm={deleteAppointment}
-          // message="Confirm delete appointment" 
+          message="Confirm delete appointment" 
         />}
  {mode === EDIT &&
         <Form 
@@ -108,6 +110,18 @@ else {
           interviewers={props.interviewers}
           onSave={save}
           onCancel={back}
+        />
+      }
+      {mode === ERROR_SAVE && 
+        <Error 
+          message="Error. Try to save appointment later"
+          onClose={back}
+        />
+      }
+      {mode === ERROR_DELETE && 
+        <Error 
+          message="Error. Try to delete appointment later"
+          onClose={back}
         />
       }
 
