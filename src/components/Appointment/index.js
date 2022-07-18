@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import "./styles.scss";
-import classNames from "classnames";
+// import classNames from "classnames";
 
 import Empty from "./Empty.js";
 import Header from "./Header.js";
@@ -19,7 +19,7 @@ export default function Appointment(props) {
 const SHOW = "SHOW";
 const CREATE = "CREATE";
 const SAVING = "SAVING";
-
+const DELETING = "DELETING";
 
 
 const { mode, transition, back } = useVisualMode(
@@ -44,6 +44,16 @@ function save(name, interviewer) {
 
 }
 
+function deleteAppointment(id) {
+ 
+  transition(DELETING)
+  props.cancelInterview(id).then(() => transition(EMPTY))
+  
+
+
+}
+
+
 
   return (
     
@@ -55,9 +65,10 @@ function save(name, interviewer) {
   <Show
     student={props.interview.student}
     interviewer={props.interview.interviewer}
+    onDelete={deleteAppointment}
   />
 )}
-{mode === SAVING && <Status message="Saving" />}
+
  {mode === CREATE &&
         <Form
           name={props.name}
@@ -67,7 +78,8 @@ function save(name, interviewer) {
           onSave={save}
           onCancel={back}
           />}
-
+{mode === SAVING && <Status message="Saving" />}
+{mode === DELETING && <Status message="Deleting" />}
 
   {/* <article className={AppointmentClass}>
 {props.interview?<Show  student={props.interview.student} interviewer={props.interview.interviewer}/>:<Empty />}

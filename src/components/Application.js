@@ -116,6 +116,9 @@ export default function Application(props) {
     return axios.put(`/api/appointments/${id}`, { interview })
   }
 
+  function cancelInterview(id) {
+    return axios.delete(`/api/appointments/${id}`)}
+
   // function save(name, interviewer) {
   //   const interview = {
   //     student: name,
