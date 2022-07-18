@@ -114,12 +114,12 @@ export default function Application(props) {
     });
   }
 
-  function save(name, interviewer) {
-    const interview = {
-      student: name,
-      interviewer
-    };
-  }
+  // function save(name, interviewer) {
+  //   const interview = {
+  //     student: name,
+  //     interviewer
+  //   };
+  // }
 
   const dailyInterviewers = getInterviewersForDay(state,state.day)
   const dailyAppointments = getAppointmentsForDay(state,state.day)

@@ -19,16 +19,7 @@ export default function Appointment(props) {
 const SHOW = "SHOW";
 const CREATE = "CREATE";
 
-// save to Form
-function save(name, interviewer) {
-  const interview = {
-    student: name,
-    interviewer
-  };
-  props.bookInterview(props.id, interview).then(() => transition(SHOW))
 
-
-}
 
 const { mode, transition, back } = useVisualMode(
   props.interview ? SHOW : EMPTY
@@ -37,6 +28,21 @@ const { mode, transition, back } = useVisualMode(
 
   // const AppointmentClass = classNames("appointment");
   // props.interviewers = [];
+
+
+  // save to Form
+function save(name, interviewer) {
+  const interview = {
+    student: name,
+    interviewer
+  };
+  props.bookInterview(props.id, interview)
+  transition(SHOW)
+
+
+}
+
+
   return (
     
     <>
