@@ -84,6 +84,7 @@ else {
     student={props.interview.student}
     interviewer={props.interview.interviewer}
     onDelete={deleteAppointment}
+    onEdit={editAppointment}
   />
 )}
 
@@ -105,7 +106,7 @@ else {
           onConfirm={deleteAppointment}
           message="Confirm your intention to delete appointment" 
         />}
-{mode === CONFIRM && 
+{mode === EDIT && 
         <Form 
           name={props.name}
           value={props.value}

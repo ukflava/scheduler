@@ -116,6 +116,12 @@ export default function Application(props) {
     return axios.put(`/api/appointments/${id}`, { interview })
   }
 
+  function editInterview(id, interview) {
+    console.log(id, interview);
+    return axios.put(`/api/appointments/${id}`, { interview })
+  }
+
+  
   function cancelInterview(id) {
     return axios.delete(`/api/appointments/${id}`)}
 
@@ -164,6 +170,7 @@ export default function Application(props) {
   value={state.day}
   onChange={setDay}
   bookInterview={bookInterview}
+  editInterview={editInterview}
 /></nav>
 <img
   className="sidebar__lhl sidebar--centered"
