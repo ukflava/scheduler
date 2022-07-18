@@ -142,6 +142,7 @@ export default function Application(props) {
         // interview={appointment.interview}
         interviewers={dailyInterviewers}
         bookInterview={bookInterview}
+        cancelInterview={cancelInterview}
         />
     );
   });

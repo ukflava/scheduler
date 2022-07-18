@@ -44,10 +44,10 @@ function save(name, interviewer) {
 
 }
 
-function deleteAppointment(id) {
- 
+function deleteAppointment() {
+ console.log("id from delete")
   transition(DELETING)
-  props.cancelInterview(id).then(() => transition(EMPTY))
+  props.cancelInterview(props.id).then(() => transition(EMPTY))
   
 
 
