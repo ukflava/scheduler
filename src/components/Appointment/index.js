@@ -19,6 +19,14 @@ export default function Appointment(props) {
 const SHOW = "SHOW";
 const CREATE = "CREATE";
 
+
+function save(name, interviewer) {
+  const interview = {
+    student: name,
+    interviewer
+  };
+}
+
 const { mode, transition, back } = useVisualMode(
   props.interview ? SHOW : EMPTY
 );
@@ -44,6 +52,7 @@ const { mode, transition, back } = useVisualMode(
           value={props.value}
           interviewers={props.interviewers}
           // interviewers={props.interviewers}
+          onSave={save}
           onCancel={back}
           />}
 

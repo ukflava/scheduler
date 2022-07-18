@@ -97,6 +97,17 @@ export default function Application(props) {
     });
   }, []);
 
+  function bookInterview(id, interview) {
+    console.log(id, interview);
+  }
+
+  function save(name, interviewer) {
+    const interview = {
+      student: name,
+      interviewer
+    };
+  }
+
   const dailyInterviewers = getInterviewersForDay(state,state.day)
   const dailyAppointments = getAppointmentsForDay(state,state.day)
   
@@ -110,7 +121,8 @@ export default function Application(props) {
         time={appointment.time}
         interview={interview}
         interviewers={dailyInterviewers}
-      />
+        bookInterview={bookInterview}
+        />
     );
   });
 
@@ -129,6 +141,7 @@ export default function Application(props) {
   days={state.days}
   value={state.day}
   onChange={setDay}
+  bookInterview={bookInterview}
 /></nav>
 <img
   className="sidebar__lhl sidebar--centered"
@@ -138,7 +151,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
       {schedule}
-      <Appointment key="last" time="5pm" />
+      <Appointment key="last" time="5pm" bookInterview={bookInterview} />
         
       </section>
     </main>
