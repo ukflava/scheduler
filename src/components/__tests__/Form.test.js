@@ -41,6 +41,7 @@ describe("Form", () => {
     expect(getByText(/student name cannot be blank/i)).toBeInTheDocument();
   
     /* 2. onSave is not called */
+    fireEvent.click(getByText("Save"));
     expect(onSave).not.toHaveBeenCalled();
   });
   
@@ -49,6 +50,7 @@ describe("Form", () => {
     expect(getByText(/please select an interviewer/i)).toBeInTheDocument();
   
     /* 4. onSave is not called */
+    fireEvent.click(getByText("Save"));
     expect(onSave).not.toHaveBeenCalled();
   });
   
@@ -58,9 +60,11 @@ describe("Form", () => {
     expect(queryByText(/please select an interviewer/i)).toBeNull();
   
     /* 6. onSave is called once*/
+    fireEvent.click(getByText("Save"));
     expect(onSave).toHaveBeenCalledTimes(1);
   
     /* 7. onSave is called with the correct arguments */
+    fireEvent.click(getByText("Save"));
     expect(onSave).toHaveBeenCalledWith("Lydia Miller-Jones", 1);
   });
 
