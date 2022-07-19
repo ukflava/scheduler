@@ -25,10 +25,10 @@ function validate() {
     return;
     
   }
-  if (interviewer === null) {
-    setError("Please select an interviewer");
-    return;
-  }
+  // if (interviewer === null) {
+  //   setError("Please select an interviewer");
+  //   return;
+  // }
   setError("")
   // props.onSave(student, interviewer.id);
   props.onSave(student, interviewer);
@@ -55,6 +55,7 @@ function validate() {
     </form>
     <InterviewerList 
     {...props}
+    interviewers={props.interviewers}
     value={interviewer}
     onChange={(event) => setInterviewer(event)}
 
@@ -66,7 +67,7 @@ function validate() {
     <section className="appointment__actions">
       <Button danger onClick={cancel}>Cancel</Button>
       {/* <Button confirm onSubmit={event => event.preventDefault()} onClick={() => props.onSave(student, interviewer)}>Save</Button> */}
-      <Button confirm onSubmit={event => event.preventDefault()} onClick={validate}>Save</Button>
+      <Button confirm onClick={validate}>Save</Button>
     </section>
   </section>
 </main>
