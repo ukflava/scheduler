@@ -29,9 +29,9 @@ function validate() {
     setError("Please select an interviewer");
     return;
   }
-  
+  setError("")
   // props.onSave(student, interviewer.id);
-  return props.onSave(student, interviewer);
+  props.onSave(student, interviewer);
   // Save for rest of tests
 }
 
@@ -43,8 +43,8 @@ function validate() {
       <input
         className="appointment__create-input text--semi-bold"
         
-        // name="name"
-        name={props.name}
+        name="name"
+        // name={props.name}
         type="text"
         placeholder="Enter Student Name"
         value={student}
