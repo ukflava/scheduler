@@ -26,17 +26,13 @@ const cancel = () => {
     <form autoComplete="off" onSubmit={event => event.preventDefault()}>
       <input
         className="appointment__create-input text--semi-bold"
-        data-testid="student-name-input"
+        
         name="name"
         type="text"
         placeholder="Enter Student Name"
         value={student}
         onChange={(event) => setStudent(event.target.value)}
-
-        /*
-          This must be a controlled component
-          your code goes here
-        */
+        data-testid="student-name-input"
       />
     </form>
     <InterviewerList {...props}
