@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import "./styles.scss";
-// import classNames from "classnames";
 
 import Empty from "./Empty.js";
 import Error from "./Error.js";
@@ -15,7 +14,7 @@ import useVisualMode from "hooks/useVisualMode";
 
 
 export default function Appointment(props) {
-// props.interviewers = [];
+
   const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
@@ -30,10 +29,6 @@ const ERROR_DELETE = "ERROR_DELETE";
 const { mode, transition, back } = useVisualMode(
   props.interview ? SHOW : EMPTY
 );
-
-
-  // const AppointmentClass = classNames("appointment");
-  // props.interviewers = [];
 
 
   // save to Form
@@ -125,16 +120,9 @@ else {
         />
       }
 
-  {/* <article className={AppointmentClass}>
-{props.interview?<Show  student={props.interview.student} interviewer={props.interview.interviewer}/>:<Empty />}
-</article> */}
+
   </>
     );
 
-
-//   return (
-//     console.log(" ")
-//   );
 }
 
-// export default function Appointment

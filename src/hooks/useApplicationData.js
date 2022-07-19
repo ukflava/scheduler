@@ -12,7 +12,6 @@ const [state, setState] = useState({
   interviewers: {}
 });
 const setDay = day => setState({ ...state, day });
-// const dailyAppointments = [];
 
 useEffect(() => {
   Promise.all([
@@ -22,8 +21,7 @@ useEffect(() => {
   ]).then(all => {
   //  console.log(all)
    setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: all[2].data }));
-  //  setState(prev => ({...prev, days: all[0].data, appointments: all[1].data, interviewers: [] }));
-  // SET to EMPTY ARRAY FOR When the mode === CREATE we want to show the Form component.
+
   });
 }, []);
 
@@ -46,21 +44,15 @@ function bookInterview(id, interview) {
   return axios.put(`/api/appointments/${id}`, { interview })
 }
 
-function editInterview(id, interview) {
-  console.log(id, interview);
-  return axios.put(`/api/appointments/${id}`, { interview })
-}
+// function editInterview(id, interview) {
+//   console.log(id, interview);
+//   return axios.put(`/api/appointments/${id}`, { interview })
+// }
 
 
 function cancelInterview(id) {
   return axios.delete(`/api/appointments/${id}`)}
 
-// function save(name, interviewer) {
-//   const interview = {
-//     student: name,
-//     interviewer
-//   };
-// }
 
 return {
   state,
