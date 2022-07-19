@@ -51,7 +51,7 @@ function bookInterview(id, interview) {
 
 
 function cancelInterview(id) {
-  return axios.delete(`/api/appointments/${id}`)}
+    return axios.delete(`/api/appointments/${id}`)}
 
 
 return {

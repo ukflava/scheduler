@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 // import axios from "axios";
 
-import useApplicationData from "hooks/useApplicationData";
 //STYLES
 import "components/Application.scss";
 
 //LOCAL IMPORT
 import Appointment from "components/Appointment";
-
 import DayList from "./DayList";
 import { getInterview, getAppointmentsForDay, getInterviewersForDay} from "components/helpers/selectors";
-
+import useApplicationData from "hooks/useApplicationData";
 
 
 
@@ -56,7 +54,8 @@ export default function Application(props) {
   alt="Interview Scheduler"
 />
 <hr className="sidebar__separator sidebar--centered" />
-<nav className="sidebar__menu"><DayList
+<nav className="sidebar__menu">
+  <DayList
   days={state.days}
   value={state.day}
   onChange={setDay}

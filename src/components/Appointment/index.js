@@ -37,9 +37,11 @@ function save(name, interviewer) {
     student: name,
     interviewer
   };
-  transition(SAVING, true)
-  props.bookInterview(props.id, interview).then(() => transition(SHOW))
-  .catch(() => window.alert("error"), transition(ERROR_SAVE, true))
+  transition(SAVING, true);
+  props.bookInterview(props.id, interview)
+  .then(() => transition(SHOW))
+  // .catch(() => window.alert("error"), transition(ERROR_SAVE, true))
+  .catch(() => transition(ERROR_SAVE, true))
 
 
 }
@@ -53,8 +55,9 @@ function deleteAppointment() {
 
  if (mode === CONFIRM) {
   transition(DELETING, true)
-  props.cancelInterview(props.id).then(() => transition(EMPTY))
-  .catch(() => window.alert("error"), transition(ERROR_DELETE, true))
+  props.cancelInterview(props.id)
+  .then(() => transition(EMPTY))
+  .catch(() => transition(ERROR_DELETE, true))
 }
 else {
   transition(CONFIRM);
@@ -96,7 +99,7 @@ else {
         <Confirm 
           onCancel={back}
           onConfirm={deleteAppointment}
-          message="Confirm delete appointment" 
+          message="Confirm action to delete appointment" 
         />}
  {mode === EDIT &&
         <Form 
