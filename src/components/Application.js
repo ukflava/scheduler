@@ -18,7 +18,8 @@ export default function Application(props) {
     state,
     setDay,
     bookInterview,
-    cancelInterview
+    cancelInterview,
+    spots
   } = useApplicationData();
   
   const dailyInterviewers = getInterviewersForDay(state,state.day)
@@ -58,6 +59,7 @@ export default function Application(props) {
   <DayList
   days={state.days}
   value={state.day}
+  // count={state.spots}
   onChange={setDay}
   bookInterview={bookInterview}
   // editInterview={editInterview}
@@ -70,7 +72,7 @@ export default function Application(props) {
       </section>
       <section className="schedule">
       {schedule}
-      {/* <Appointment key="last" time="5pm" bookInterview={bookInterview} /> */}
+      {/* <Appointment key="last" time="5pm" bookInterview={bookInterview} cancelInterview={cancelInterview} /> */}
         
       </section>
     </main>

@@ -99,7 +99,7 @@ else {
         <Confirm 
           onCancel={back}
           onConfirm={deleteAppointment}
-          message="Confirm action to delete appointment" 
+          message="Please confirm action *delete appointment*" 
         />}
  {mode === EDIT &&
         <Form 
