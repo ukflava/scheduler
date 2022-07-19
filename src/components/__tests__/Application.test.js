@@ -9,3 +9,11 @@ afterEach(cleanup);
 xit("renders without crashing", () => {
   render(<Application />);
 });
+
+
+describe("Application full test", () => {
+
+
+
+
+})
