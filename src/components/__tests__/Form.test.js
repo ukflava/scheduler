@@ -8,7 +8,7 @@ import Form from "components/Appointment/Form";
 
 afterEach(cleanup);
 
-describe("Form", () => {
+describe.only("Form", () => {
   const interviewers = [
     {
       id: 1,

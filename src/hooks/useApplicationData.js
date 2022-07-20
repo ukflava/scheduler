@@ -15,6 +15,9 @@ const setDay = day => setState({ ...state, day });
 
 useEffect(() => {
   Promise.all([
+    // axios.get("http://localhost:8001/api/days"),
+    // axios.get("http://localhost:8001/api/appointments"),
+    // axios.get("http://localhost:8001/api/interviewers")
     axios.get("/api/days"),
     axios.get("/api/appointments"),
     axios.get("/api/interviewers")
@@ -26,7 +29,7 @@ useEffect(() => {
 }, []);
 
 function bookInterview(id, interview) {
-  console.log(id, interview);
+  // console.log(id, interview);
   const appointment = {
     ...state.appointments[id],
     interview: { ...interview }
@@ -41,7 +44,7 @@ function bookInterview(id, interview) {
     appointments
   });
 
-  return axios.put(`/api/appointments/${id}`, { interview })
+  return axios.put(`api/appointments/${id}`, { interview })
 }
 
 // function editInterview(id, interview) {
@@ -51,14 +54,14 @@ function bookInterview(id, interview) {
 
 
 function cancelInterview(id) {
-    return axios.delete(`/api/appointments/${id}`)}
+    return axios.delete(`api/appointments/${id}`)}
 
 
     // const [count,setCount] = useState(0);
 
 function spots (state, day) {
   let count =0;
-  console.log("state from hook", state )
+  // console.log("state from hook", state )
   state.days
   .filter(element => element.name === day).appointments.forEach((a) => {
     return state.appointments[a].interview ? 0 : count+1;
