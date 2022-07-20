@@ -12,7 +12,7 @@ export function getAppointmentsForDay(state, day) {
       // dataDays.appointments.forEach(appt => ListAppointments.push(appt))
     }
   })
-  console.log("LIST FROM SELECTORS APPFORDAY",ListAppointments)
+  // console.log("LIST FROM SELECTORS APPFORDAY",ListAppointments)
   return ListAppointments;
 }
 // export function getInterviewersForDay(state) {
@@ -41,7 +41,7 @@ export function getInterviewersForDay(state, day) {
   // name or id ???
 //     // if (InterviewerData.id === personId) {
 
-console.log(ListInterviewers)
+// console.log(ListInterviewers)
   return ListInterviewers;
 }
 
@@ -55,8 +55,8 @@ export function getInterview(state, interview) {
   const interviewerData = state.interviewers[interview.interviewer];
 
   
-  console.log("viewe", interview)
-  console.log("student, interviewer", state)
+  // console.log("viewe", interview)
+  // console.log("student, interviewer", state)
   return {
     student: interview.student,
     interviewer: interviewerData

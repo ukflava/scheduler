@@ -51,7 +51,7 @@ function editAppointment() {
 }
 
 function deleteAppointment() {
- console.log("confirm from delete")
+//  console.log("confirm from delete")
 
  if (mode === CONFIRM) {
   transition(DELETING, true)
@@ -70,7 +70,7 @@ else {
 
   return (
     
-    <>
+    <article className="appointment" data-testid="appointment">
     
  <Header time={props.time} />
  {mode === EMPTY && <Empty onAdd={() => transition(CREATE)} />}
@@ -124,7 +124,7 @@ else {
       }
 
 
-  </>
+  </article>
     );
 
 }
