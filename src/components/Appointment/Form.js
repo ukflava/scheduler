@@ -25,10 +25,10 @@ function validate() {
     return;
     
   }
-  // if (interviewer === null) {
-  //   setError("Please select an interviewer");
-  //   return;
-  // }
+  if (interviewer === null) {
+    setError("Please select an interviewer");
+    return;
+  }
   setError("")
   // props.onSave(student, interviewer.id);
   props.onSave(student, interviewer);
