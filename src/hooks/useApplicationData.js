@@ -1,6 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useReducer } from "react";
 
 import axios from "axios";
+import reducer, {
+  SET_DAY,
+  SET_APPLICATION_DATA,
+  SET_INTERVIEW
+} from "reducers/application";
 
 
 export default function useApplicationData(props) {
@@ -26,6 +31,30 @@ export default function useApplicationData(props) {
     }
   }
 
+
+  function reducer(state, action) {
+    if (action.type === "add") {
+      return state + action.value;
+    }
+    if (action.type === "subtract") {
+      return state - action.value;
+    }
+  
+    return state;
+  }
+  
+  function BoringCalculator() {
+    const [state, dispatch] = useReducer(reducer, 0);
+  
+    return (
+      <div>
+        <button onClick={() => dispatch({ type: "add", value: 3 })}>Add 3</button>
+        <button onClick={() => dispatch({ type: "subtract", value: 5 })}> Subtract 5</button>
+        <button onClick={() => dispatch({ type: "add", value: 7 })}>Add 7</button>
+        <h2>{state}</h2>
+      </div>
+    );
+  }
 
 const [state, setState] = useState({
   day: "Monday",
