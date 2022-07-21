@@ -66,9 +66,10 @@ https://github.com/lighthouse-labs/scheduler-api
 ## Built with 
 
 - [React](https://reactjs.org/) 
-- [Webpack, Babel](https://reactjs.org/) 
-- [Axios](https://reactjs.org/) 
-- [Storybook](https://reactjs.org/) 
+- [Webpack](https://webpack.js.org/) 
+- [Babel](https://babeljs.io/) 
+- [Axios](https://github.com/axios/axios) 
+- [Storybook](https://storybook.js.org/) 
 
 ## Tested with 
 - [Testing Library](https://testing-library.com/) 
