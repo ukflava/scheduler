@@ -27,7 +27,7 @@
 </ul>
 
 ## Final Product Live
-[Interactive Screenshots](https://github.com/ukflava/scheduler/blob/master/public/images/Animation.gif)
+![Interactive Screenshots](https://github.com/ukflava/scheduler/blob/master/public/images/Animation.gif)
 
 
 ## Setup
