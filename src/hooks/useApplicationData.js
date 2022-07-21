@@ -29,7 +29,7 @@ useEffect(() => {
 }, []);
 
 function bookInterview(id, interview) {
-  // console.log(id, interview);
+  console.log("interview", interview);
   const appointment = {
     ...state.appointments[id],
     interview: { ...interview }
@@ -44,7 +44,7 @@ function bookInterview(id, interview) {
     appointments
   });
 
-  return axios.put(`api/appointments/${id}`, { interview })
+  return axios.put(`api/appointments/${id}`, { interview }).then(console.log("data from spotas update", state))
 }
 
 // function editInterview(id, interview) {
@@ -57,17 +57,26 @@ function cancelInterview(id) {
     return axios.delete(`api/appointments/${id}`)}
 
 
-    // const [count,setCount] = useState(0);
-
-function spots (state, day) {
+  
+function mySpots (state, day) {
   let count =0;
   // console.log("state from hook", state )
   state.days
-  .filter(element => element.name === day).appointments.forEach((a) => {
+  .find(element => element.name === day).appointments.forEach((a) => {
     return state.appointments[a].interview ? 0 : count+1;
   }, 0); 
   return count
     }
+    
+// function mySpots (state, day) {
+//   let count =0;
+//   // console.log("state from hook", state )
+//   state.days
+//   .filter(element => element.name === day).appointments.forEach((a) => {
+//     return state.appointments[a].interview ? 0 : count+1;
+//   }, 0); 
+//   return count
+//     }
     
 
 
@@ -75,7 +84,7 @@ return {
   state,
   setDay,
   bookInterview,
-  cancelInterview,
-  spots
+  cancelInterview
+  
 };
 }

@@ -18,8 +18,7 @@ export default function Application(props) {
     state,
     setDay,
     bookInterview,
-    cancelInterview,
-    spots
+    cancelInterview
   } = useApplicationData();
   
   const dailyInterviewers = getInterviewersForDay(state,state.day)
