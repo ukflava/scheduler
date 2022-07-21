@@ -32,7 +32,9 @@
 
 ## Setup
 
-Install dependencies with `npm install`.
+1. Clone project to your local machine
+
+2. Install dependencies with `npm install`.
 
 ## Running Webpack Development Server
 
