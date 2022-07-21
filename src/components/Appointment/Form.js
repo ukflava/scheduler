@@ -30,9 +30,9 @@ function validate() {
     return;
   }
   setError("")
-  // props.onSave(student, interviewer.id);
+
   props.onSave(student, interviewer);
-  // Save for rest of tests
+
 }
 
 
