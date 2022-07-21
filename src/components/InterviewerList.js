@@ -1,27 +1,11 @@
 import React from "react";
 import PropTypes from 'prop-types'; 
-// import classNames from "classnames";
 
 import InterviewerListItem from "components/InterviewerListItem";
-// import "components/InterviewerList.scss";
+
 import "components/InterviewerListItem.scss";
 export default function InterviewerList(props) {
-  // const InterviewerClass = classNames("interviewers__list", {
-  //   // "day-list__item": props,
 
-  //   // "interviewers__header": props.avatar,
-  //   "interviewers__header": props.selected === true
-    
-    
-  // });
-// props.interviewers = [];
-
-
-///TEMP FOR FORM CHECKING - CHANGE LATER
-// const Interviewers = <InterviewerListItem />
-/////
-
-// UNCOMMENT THIS SECTION
 
 const Interviewers = props.interviewers.map((interviewer) => {
   
