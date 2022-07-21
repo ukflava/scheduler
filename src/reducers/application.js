@@ -33,7 +33,23 @@ export default function reducer(state, action) {
       };
     }
     case SET_INTERVIEW: {
-     
+      const newState = {
+        ...state,
+        appointments: {
+          ...state.appointments,
+          [action.id]: {
+            ...state.appointments[action.id],
+            interview: action.interview
+          }
+        }
+      };
+      return {
+        ...newState,
+        days: state.days.map(day => ({
+          ...day,
+          spots: getSpotsForDay(newState, day.name)
+        }))
+      };
     }
     default:
       throw new Error(

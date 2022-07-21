@@ -55,42 +55,41 @@ function bookInterview(id, interview) {
 //   console.log(id, interview);
 //   return axios.put(`/api/appointments/${id}`, { interview })
 // }
-
-
 function cancelInterview(id) {
-  const appointments = {
-    ...state.appointments,
-    [id]: null
-  };
+  return axios.delete(`/api/appointments/${id}`).then(r =>
 
-  setState({
-    ...state,
-    appointments
-  });
-    return axios.delete(`api/appointments/${id}`)
-    // .then(mySpots)
-  }
+    dispatch({
+      type: SET_INTERVIEW,
+      id,
+      interview: null
+    })
+  );
+}
 
 
   
-function mySposts () {
+
+
+
+
+// function mySposts () {
 
 
 
 
 
-  setState({
-    ...state,
-    days: state.days.map(day => ({
-      ...day,
-      spots: state.days
-      .find(d => d.name === day)
-      .appointments.reduce((a, c) => {
-        return state.appointments[c].interview ? a : a + 1;
-      }, 0)
-    }))
-  });
-}
+//   setState({
+//     ...state,
+//     days: state.days.map(day => ({
+//       ...day,
+//       spots: state.days
+//       .find(d => d.name === day)
+//       .appointments.reduce((a, c) => {
+//         return state.appointments[c].interview ? a : a + 1;
+//       }, 0)
+//     }))
+//   });
+// }
 
   // let count = 0;
   // // console.log("state from hook", state )
