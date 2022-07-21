@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-// import axios from "axios";
+import React from "react";
 
 //STYLES
 import "components/Application.scss";
@@ -34,11 +33,9 @@ export default function Application(props) {
         id={appointment.id}
         time={appointment.time}
         interview={interview}
-        // interview={appointment.interview}
         interviewers={dailyInterviewers}
         bookInterview={bookInterview}
         cancelInterview={cancelInterview}
-        // editInterview={editInterview}
         />
     );
   });
@@ -58,10 +55,8 @@ export default function Application(props) {
   <DayList
   days={state.days}
   value={state.day}
-  // count={state.spots}
   onChange={setDay}
   bookInterview={bookInterview}
-  // editInterview={editInterview}
 /></nav>
 <img
   className="sidebar__lhl sidebar--centered"

@@ -1,27 +1,21 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import { render, cleanup, waitForElement, wait, fireEvent, queryByAltText, getByText, getByAltText, getAllByTestId, prettyDOM, getByPlaceholderText, queryByText, queryAllByAltText } from "@testing-library/react";
-// import { fireEvent, waitForElement, render, cleanup, } from "@testing-library/react";
+
+import { render, cleanup, waitForElement, wait, fireEvent, queryByAltText, getByText, getByAltText, getAllByTestId, getByPlaceholderText, queryByText } from "@testing-library/react";
+
 import reducer from "reducers/application";
 import Application from "components/Application";
-jest.mock('axios')
 import axios from 'axios';
+jest.mock('axios')
 
 afterEach(cleanup);
-// axios.defaults.baseURL = "http://localhost:8001/";
+
 axios.defaults.baseURL = "";
 
-// Render the Application.
-// Wait until the text "Archie Cohen" is displayed.
-// Click the "Add" button on the first empty appointment.
-// Enter the name "Lydia Miller-Jones" into the input with the placeholder "Enter Student Name".
-// Click the first interviewer in the list.
-// Click the "Save" button on that same appointment.
-// Check that the element with the text "Saving" is displayed.
-// Wait until the element with the text "Lydia Miller-Jones" is displayed.
-// Check that the DayListItem with the text "Monday" also has the text "no spots remaining".
+
 
 describe("Application full test", () => {
+
+
   it("defaults to Monday and changes the schedule when a new day is selected", async () => {
     const { getByText } = render(<Application />);
 
@@ -30,8 +24,9 @@ describe("Application full test", () => {
       expect(getByText("Leopold Silvers")).toBeInTheDocument();
   });
 
+
   it("loads data, books an interview and reduces the spots remaining for Monday by 1", async () => {
-    const { container, debug } = render(<Application />);
+    const { container} = render(<Application />);
   
     await waitForElement(() => getByText(container, "Archie Cohen"));
     const appointments = getAllByTestId(container, "appointment");
@@ -56,6 +51,7 @@ describe("Application full test", () => {
   
     expect(getByText(day, "no spots remaining")).toBeInTheDocument();
   });
+
 
   it("loads data, cancels an interview and increases the spots remaining for Monday by 1", async () => {
 
@@ -83,6 +79,7 @@ describe("Application full test", () => {
     expect(getByText(day, "2 spots remaining")).toBeInTheDocument();
   });
 
+
   it("shows the save error when failing to save an appointment", async() => {
     axios.put.mockRejectedValueOnce();
     const { container } = render(<Application />)
@@ -109,6 +106,7 @@ describe("Application full test", () => {
     expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
   });
 
+
   it("shows the delete error when failing to delete an existing appointment", async () => {
     axios.delete.mockRejectedValueOnce();
     const { container } = render(<Application />);
@@ -134,11 +132,16 @@ describe("Application full test", () => {
 
     expect(getByText(day, "1 spot remaining")).toBeInTheDocument();
   });
-it("shows the save error when failing to save an appointment", () => {
+
+
+  it("shows the save error when failing to save an appointment", () => {
   axios.put.mockRejectedValueOnce();
 });
 
 })
+
+
+
 
 describe("Application Reducer", () => {
   it("thows an error with an unsupported type", () => {

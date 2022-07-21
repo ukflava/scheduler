@@ -4,12 +4,11 @@ import "components/DayListItem.scss";
 
 export default function DayListItem(props) {
   const dayClass = classNames("day-list__item", {
-    // "day-list__item": props,
     "day-list__item--selected": props.selected === true,
     "day-list__item--full": !props.spots
     
   });
-  // console.log("props from day", props)
+
 
 const formatSpots = (input) => {
   if (input === 1 ) { return "1 spot"}

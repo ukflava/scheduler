@@ -11,7 +11,4 @@ export default function Confirm(props) {
     </section>
   </main>
     );
-//   return (
-//     console.log(" ")
-//   );
 }

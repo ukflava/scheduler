@@ -16,7 +16,5 @@ export default function Error(props) {
   />
 </main>
     );
-//   return (
-//     console.log(" ")
-//   );
+
 }

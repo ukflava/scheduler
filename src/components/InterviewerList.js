@@ -44,14 +44,7 @@ const Interviewers = props.interviewers.map((interviewer) => {
   <ul className="interviewers__list">{Interviewers}</ul>
 </section>
 
-// {/* <ul className={InterviewerClass}>{Interviewers}</ul> */}
 
-    // <li className={dayClass} onClick={() => props.setDay(props.name)}>
-    //   <h2>{props.name}</h2>
-    //   <h3>{formatSpots(props.spots)} remaining</h3>
-    // </li>
-
-    
   );
 }
 

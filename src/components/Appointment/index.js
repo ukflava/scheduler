@@ -1,5 +1,7 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import "./styles.scss";
+
+// LOCAL IMPORT
 
 import Empty from "./Empty.js";
 import Error from "./Error.js";
@@ -9,13 +11,15 @@ import Form from "./Form.js";
 import Confirm from "./Confirm.js";
 import Status from "./Status.js";
 
+// HOOKS
 import useVisualMode from "hooks/useVisualMode";
 
 
 
 export default function Appointment(props) {
 
-  const EMPTY = "EMPTY";
+
+const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
 const SAVING = "SAVING";
@@ -26,12 +30,14 @@ const ERROR_SAVE = "ERROR_SAVE";
 const ERROR_DELETE = "ERROR_DELETE";
 
 
+
+// TRANSITIONS
 const { mode, transition, back } = useVisualMode(
   props.interview ? SHOW : EMPTY
 );
 
+//save
 
-  // save to Form
 function save(name, interviewer) {
   const interview = {
     student: name,
@@ -40,18 +46,19 @@ function save(name, interviewer) {
   transition(SAVING, true);
   props.bookInterview(props.id, interview)
   .then(() => transition(SHOW))
-  // .catch(() => window.alert("error"), transition(ERROR_SAVE, true))
+
   .catch(() => transition(ERROR_SAVE, true))
 
-
+//edit
 }
 function editAppointment() {
   
   transition(EDIT);
 }
 
+//delete
 function deleteAppointment() {
-//  console.log("confirm from delete")
+
 
  if (mode === CONFIRM) {
   transition(DELETING, true)
@@ -62,11 +69,7 @@ function deleteAppointment() {
 else {
   transition(CONFIRM);
 } 
-
-
 }
-
-
 
   return (
     
@@ -88,7 +91,6 @@ else {
           name={props.name}
           value={props.value}
           interviewers={props.interviewers}
-          // interviewers={props.interviewers}
           onSave={save}
          
           onCancel={back}
